@@ -1,0 +1,10 @@
+<header class="navbar-inverse navbar-fixed-top navbar">
+  <div class="container">
+    <%= link_to "Logo", "/", id: "logo"%>
+    <nav class="navbar-right navbar-nav nav">
+      <li><%= link_to t("home").camelize, "/" %></li>
+      <li><%= link_to t("contact").camelize, "/contact/index" %></li>
+      <li><%= link_to "#{t("greeting").camelize}, Trule", "#" %></li>
+    </nav>
+  </div>
+</header>
