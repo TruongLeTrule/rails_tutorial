@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  SIGN_UP_REQUIRE_ATTRIBUTES = %i(name email password
+password_confirmation).freeze
+
   has_secure_password
 
   # Validations

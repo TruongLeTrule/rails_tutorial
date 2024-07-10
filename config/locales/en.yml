@@ -1,9 +1,12 @@
 en:
   home: "Home"
-  contact: "contact"
-  greeting: "Hello"
-
-vi:
-  home: "Trang chủ"
-  contact: "Liên lạc"
-  greeting: "Xin chào"
+  contact: "Contact"
+  greeting: "Hi"
+  the_form_contains: "The form contains"
+  error: "error"
+  user:
+    sign_up: "Sign up"
+    create: "Create account"
+    password_confirm: "Password confirmation"
+    created: "User created successful"
+    not_found: "User not found!"
