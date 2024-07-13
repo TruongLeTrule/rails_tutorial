@@ -32,3 +32,5 @@
 /config/database.yml
 /test/*
 /config/credentials.yml.enc
+
+.byebug_history
