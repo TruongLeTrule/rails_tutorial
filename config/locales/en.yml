@@ -1,9 +1,18 @@
 en:
-  home: "Home"
-  contact: "contact"
-  greeting: "Hello"
-
-vi:
-  home: "Trang chủ"
-  contact: "Liên lạc"
-  greeting: "Xin chào"
+  layouts:
+    header:
+      log_out_confirm: "Are you sure?"
+  users:
+    show:
+      not_found: "User not found!"
+    new:
+      have_account: "Already have an account?"
+      create: "Create new"
+    create:
+      successful: "Welcome to Sample App"
+  sessions:
+    new:
+      new: "New user?"
+    create:
+      successful: "Log in successful!"
+      invalid: "Incorrect email or password!"

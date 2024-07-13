@@ -1,0 +1,54 @@
+vi:
+  layouts:
+    header:
+      home: "Trang chủ"
+      contact: "Liên lạc"
+      account: "Tài khoản"
+      profile: "Hồ sơ"
+      setting: "Cài đặt"
+      log_out: "Đăng xuất"
+      log_out_confirm: "Bạn có chắc không?"
+      log_in: "Đăng nhập"
+    language:
+      choose_language: "Chọn ngôn ngữ"
+  shared:
+    error_messages:
+      the_form_contains: "Biểu mẫu này có"
+      error: "lỗi"
+  home:
+    index:
+      home: "Trang chủ"
+  contact:
+    index:
+      contact: "Liên lạc"
+  users:
+    show:
+      not_found: "Không tìm thấy người dùng!"
+    new:
+      sign_up: "Đăng ký"
+      name: "Họ tên"
+      password: "Mật khẩu"
+      password_confirm: "Xác nhận mật khẩu"
+      have_account: "Đã có tài khoản?"
+      create: "Tạo tài khoản"
+      log_in: "Đăng nhập"
+    create:
+      successful: "Chào mừng đến với Sample App"
+  sessions:
+    new:
+      log_in: "Đăng nhập"
+      password: "Mật khẩu"
+      new: "Người dùng mới?"
+      sign_up_now: "Đăng ký ngay!"
+    create:
+      successful: "Đăng nhập thành công!"
+      invalid: "Email hoặc mật khẩu không chính xác"
+  activerecord:
+    models:
+      user: "Người dùng"
+    attributes:
+      user:
+        name: "Tên"
+        email: "Email"
+        password: "Mật Khẩu"
+        password_confirmation: "Mật khẩu xác nhận"
