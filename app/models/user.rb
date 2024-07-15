@@ -18,5 +18,16 @@ password_confirmation).freeze
             length: {minimum: Rails.application.config.min_password_length}
 
   # Callbacks
-  before_save{self.email = email.downcase}
+  before_save{email.downcase!}
+
+  class << self
+    def digest string
+      cost = if ActiveModel::SecurePassword.min_cost
+               BCrypt::Engine::MIN_COST
+             else
+               BCrypt::Engine.cost
+             end
+      BCrypt::Password.create string, cost:
+    end
+  end
 end

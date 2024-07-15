@@ -1,12 +1,18 @@
 en:
-  home: "Home"
-  contact: "Contact"
-  greeting: "Hi"
-  the_form_contains: "The form contains"
-  error: "error"
-  user:
-    sign_up: "Sign up"
-    create: "Create account"
-    password_confirm: "Password confirmation"
-    created: "User created successful"
-    not_found: "User not found!"
+  layouts:
+    header:
+      log_out_confirm: "Are you sure?"
+  users:
+    show:
+      not_found: "User not found!"
+    new:
+      have_account: "Already have an account?"
+      create: "Create new"
+    create:
+      successful: "Welcome to Sample App"
+  sessions:
+    new:
+      new: "New user?"
+    create:
+      successful: "Log in successful!"
+      invalid: "Incorrect email or password!"
