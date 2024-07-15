@@ -1,5 +1,5 @@
 <% provide :page_title, t(".sign_up", default: "Sign up") %>
-<h1><%= t(".sign_up") %></h1>
+<h1><%= t ".sign_up" %></h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @user, url: signup_path do |f| %>
@@ -15,7 +15,7 @@
       <%= f.submit t(".create"), class: "btn btn-primary" %>
     <% end %>
     <p>
-      <%= t(".have_account") %>
+      <%= t ".have_account" %>
       <%= link_to t(".log_in"), login_path %>
     </p>
   </div>

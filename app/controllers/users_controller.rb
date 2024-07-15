@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:warning] = t(".not_found")
+    flash[:warning] = t ".not_found"
     redirect_to root_path
   end
 
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = t(".successful")
+      flash[:success] = t ".successful"
       redirect_to @user
     else
       render :new, status: :unprocessable_entity

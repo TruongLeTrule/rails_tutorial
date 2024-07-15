@@ -40,6 +40,7 @@ vi:
       password: "Mật khẩu"
       new: "Người dùng mới?"
       sign_up_now: "Đăng ký ngay!"
+      remember_me: "Duy trì đăng nhập trên thiết bị này"
     create:
       successful: "Đăng nhập thành công!"
       invalid: "Email hoặc mật khẩu không chính xác"
