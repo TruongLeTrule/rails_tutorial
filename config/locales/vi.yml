@@ -1,4 +1,13 @@
 vi:
+  activerecord:
+    models:
+      user: "Người dùng"
+    attributes:
+      user:
+        name: "Tên"
+        email: "Email"
+        password: "Mật Khẩu"
+        password_confirmation: "Mật khẩu xác nhận"
   layouts:
     header:
       home: "Trang chủ"
@@ -42,6 +51,7 @@ vi:
       log_in: "Đăng nhập"
     create:
       success: "Chào mừng đến với Sample App"
+      check_activation_mail: "Xin hãy kiểm tra email của bạn để kích hoạt tài khoản"
     edit:
       edit_info: "Cập nhật thông tin"
       save_changes: "Lưu thay đổi"
@@ -60,12 +70,12 @@ vi:
     create:
       successful: "Đăng nhập thành công!"
       invalid: "Email hoặc mật khẩu không chính xác"
-  activerecord:
-    models:
-      user: "Người dùng"
-    attributes:
-      user:
-        name: "Tên"
-        email: "Email"
-        password: "Mật Khẩu"
-        password_confirmation: "Mật khẩu xác nhận"
+      not_activated: "Tài khoản chưa kích hoạt. Vui lòng kiểm tra email để kích hoạt tài khoản"
+  user_mailer:
+    account_activation:
+      invalid_link: "Đường dẫn không hợp lệ"
+      success: "Kích hoạt tài khoản thành công"
+      account_activation: "Kích hoạt tài khoản"
+      greeting: "Chào %{user_name}"
+      instruction: "Chào mừng đến với Sample App. Nhấn vào đường dẫn bên dưới để kích hoạt tài khoản của bạn:"
+      activate: "Kích hoạt"

@@ -5,10 +5,12 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @pagy, @users = pagy User.all, items: Settings.page_items
+    @pagy, @users = pagy User.activated, items: Settings.page_items
   end
 
   def show; end
+
+  def edit; end
 
   def new
     @user = User.new
@@ -18,17 +20,14 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      reset_session
-      log_in @user
-      flash[:success] = t ".success"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = t ".check_activation_mail"
+      redirect_to root_path
       return
     end
 
     render :new, status: :unprocessable_entity
   end
-
-  def edit; end
 
   def update
     if @user.update user_params

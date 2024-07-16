@@ -25,6 +25,7 @@ en:
       sign_up: "Sign up"
     create:
       success: "Welcome to Sample App"
+      check_activation_mail: "Please check your mail to activate your account"
     edit:
       edit_info: "Edit information"
       save_changes: "Save changes"
@@ -40,3 +41,12 @@ en:
     create:
       successful: "Log in successful!"
       invalid: "Incorrect email or password!"
+      not_activated: "Not activated yet. Check your email to activate account"
+  user_mailer:
+    account_activation:
+      invalid_link: "Invalid activation link"
+      success: "Account activated"
+      activate: "Activate"
+      account_activation: "Account activation"
+      greeting: "Hi %{user_name}"
+      instruction: "Welcome to Sample App. Click on the link below to activate your account:"

@@ -7,9 +7,13 @@ class SessionsController < ApplicationController
       return render :new, status: :unprocessable_entity
     end
 
+    unless @user&.activated?
+      show_not_activated_msg
+      return render :new, status: :unprocessable_entity
+    end
+
     params.dig(:session, :remember_me) == "1" ? remember(@user) : forget(@user)
     forwarding_url = session[:forwarding_url]
-    reset_session
     log_in @user
     show_login_success_msg
     redirect_to forwarding_url || @user
@@ -32,5 +36,9 @@ class SessionsController < ApplicationController
 
   def show_login_fail_msg
     flash.now[:danger] = t ".invalid"
+  end
+
+  def show_not_activated_msg
+    flash.now[:danger] = t ".not_activated"
   end
 end
