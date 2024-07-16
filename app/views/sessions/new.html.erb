@@ -1,4 +1,4 @@
-<% provide :page_title, t(".log_in", default: "Log in") %>
+<% provide :page_title, t(".log_in") %>
 <h1><%= t ".log_in" %></h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -11,7 +11,7 @@
         <%= f.check_box :remember_me %>
         <span><%= t ".remember_me" %></span>
       <% end %>
-      <%= f.submit t(".log_in"), class: "btn btn-primary" %>
+      <%= f.submit t(".log_in", default: "Login"), class: "btn btn-primary" %>
     <% end %>
     <p><%= t ".new" %><%= link_to t(".sign_up_now"), signup_path %></p>
   </div>

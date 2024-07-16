@@ -1,16 +1,18 @@
 class SessionsController < ApplicationController
-  before_action :find_user_by_email, only: [:create]
+  before_action :find_user_by_email, only: :create
 
   def create
-    unless @user&.authenticate(params.dig(:session, :password))
-      flash.now[:danger] = t ".invalid"
+    unless @user.try :authenticate, params.dig(:session, :password)
+      show_login_fail_msg
       return render :new, status: :unprocessable_entity
     end
 
     params.dig(:session, :remember_me) == "1" ? remember(@user) : forget(@user)
+    forwarding_url = session[:forwarding_url]
+    reset_session
     log_in @user
-    flash[:success] = t ".successful"
-    redirect_to @user
+    show_login_success_msg
+    redirect_to forwarding_url || @user
   end
 
   def destroy
@@ -22,5 +24,13 @@ class SessionsController < ApplicationController
 
   def find_user_by_email
     @user = User.find_by(email: params.dig(:session, :email)&.downcase)
+  end
+
+  def show_login_success_msg
+    flash[:success] = t ".successful"
+  end
+
+  def show_login_fail_msg
+    flash.now[:danger] = t ".invalid"
   end
 end
