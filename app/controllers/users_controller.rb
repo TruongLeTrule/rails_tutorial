@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-  def show
-    @user = User.find_by id: params[:id]
-    return if @user
+  before_action :find_user_by_id, only: %i(show edit update destroy)
+  before_action :logged_in_user, only: %i(index show edit update destroy)
+  before_action :correct_user, only: %i(show edit update)
+  before_action :admin_user, only: :destroy
 
-    flash[:warning] = t ".not_found"
-    redirect_to root_path
+  def index
+    @pagy, @users = pagy User.all, items: Settings.page_items
   end
+
+  def show; end
 
   def new
     @user = User.new
@@ -17,16 +20,62 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = t ".successful"
+      flash[:success] = t ".success"
       redirect_to @user
-    else
-      render :new, status: :unprocessable_entity
+      return
     end
+
+    render :new, status: :unprocessable_entity
+  end
+
+  def edit; end
+
+  def update
+    if @user.update user_params
+      flash[:success] = t ".success"
+      redirect_to @user
+      return
+    end
+
+    render :edit, status: :unprocessable_entity
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = t ".success"
+    redirect_to users_url, status: :see_other
   end
 
   private
 
   def user_params
     params.require(:user).permit User::SIGN_UP_REQUIRE_ATTRIBUTES
+  end
+
+  def find_user_by_id
+    @user = User.find_by id: params[:id]
+    return if @user
+
+    flash[:warning] = t "users.not_found"
+    redirect_to root_path
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t "users.unauthenticated"
+    redirect_to login_path, status: :see_other
+  end
+
+  def correct_user
+    return if current_user? @user
+
+    flash[:danger] = t "users.unauthorized"
+    redirect_to current_user, status: :see_other
+  end
+
+  def admin_user
+    redirect_to root_url, status: :see_other unless current_user.admin?
   end
 end

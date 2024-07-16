@@ -1,17 +1,40 @@
 en:
+  home:
+    index:
+      home: "Home"
+  contact:
+    index:
+      contact: "Contact"
   layouts:
     header:
       log_out_confirm: "Are you sure?"
+  shared:
+    error:
+      error_messages: "Error"
   users:
-    show:
-      not_found: "User not found!"
+    unauthenticated: "Unauthenticated"
+    unauthorized: "Unauthorized"
+    not_found: "User not found!"
+    user:
+      delete_confirm: "Delete this user?"
+    index:
+      all_users: "All users"
     new:
       have_account: "Already have an account?"
       create: "Create new"
+      sign_up: "Sign up"
     create:
-      successful: "Welcome to Sample App"
+      success: "Welcome to Sample App"
+    edit:
+      edit_info: "Edit information"
+      save_changes: "Save changes"
+    update:
+      success: "Update profile successfully"
+    destroy:
+      success: "User deleted"
   sessions:
     new:
+      log_in: "Log in"
       new: "New user?"
       remember_me: "Remember me on this device"
     create:

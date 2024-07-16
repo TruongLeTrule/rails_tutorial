@@ -9,12 +9,17 @@ vi:
       log_out: "Đăng xuất"
       log_out_confirm: "Bạn có chắc không?"
       log_in: "Đăng nhập"
+      users: "Tất cả người dùng"
     language:
       choose_language: "Chọn ngôn ngữ"
   shared:
     error_messages:
       the_form_contains: "Biểu mẫu này có"
       error: "lỗi"
+    user_form:
+      name: "Họ tên"
+      password: "Mật khẩu"
+      password_confirm: "Xác nhận mật khẩu"
   home:
     index:
       home: "Trang chủ"
@@ -22,18 +27,29 @@ vi:
     index:
       contact: "Liên lạc"
   users:
-    show:
-      not_found: "Không tìm thấy người dùng!"
+    unauthenticated: "Vui lòng đăng nhập"
+    unauthorized: "Bạn không có quyền truy cập vào trang này"
+    not_found: "Không tìm thấy người dùng!"
+    user:
+      delete: "Xóa"
+      delete_confirm: "Xóa người dùng này?"
+    index:
+      all_users: "Tất cả người dùng"
     new:
       sign_up: "Đăng ký"
-      name: "Họ tên"
-      password: "Mật khẩu"
-      password_confirm: "Xác nhận mật khẩu"
       have_account: "Đã có tài khoản?"
       create: "Tạo tài khoản"
       log_in: "Đăng nhập"
     create:
-      successful: "Chào mừng đến với Sample App"
+      success: "Chào mừng đến với Sample App"
+    edit:
+      edit_info: "Cập nhật thông tin"
+      save_changes: "Lưu thay đổi"
+      change: "Thay đổi"
+    update:
+      success: "Cập nhật thông tin thành công"
+    destroy:
+      success: "Người dùng đã được xóa"
   sessions:
     new:
       log_in: "Đăng nhập"

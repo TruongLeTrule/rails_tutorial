@@ -7,15 +7,15 @@ password_confirmation).freeze
   # Validations
   validates :name,
             presence: true,
-            length: {maximum: Rails.application.config.max_name_length}
+            length: {maximum: Settings.max_name_length}
   validates :email,
             presence: true,
-            length: {maximum: Rails.application.config.max_email_length},
-            format: {with: Rails.application.config.email_regex},
+            length: {maximum: Settings.max_email_length},
+            format: {with: Regexp.new(Settings.email_regex)},
             uniqueness: {case_sensitive: false}
   validates :password,
             presence: true,
-            length: {minimum: Rails.application.config.min_password_length},
+            length: {minimum: Settings.min_password_length},
             allow_nil: true
 
   has_secure_password
@@ -41,6 +41,7 @@ password_confirmation).freeze
   def remember
     self.remember_token = User.new_token
     update_attribute :remember_digest, User.digest(remember_token)
+    remember_digest
   end
 
   def forget
@@ -49,5 +50,9 @@ password_confirmation).freeze
 
   def authenticated? remember_token
     BCrypt::Password.new(remember_digest).is_password? remember_token
+  end
+
+  def session_token
+    remember_digest || remember
   end
 end
