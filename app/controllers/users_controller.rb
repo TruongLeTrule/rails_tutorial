@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit User::SIGN_UP_REQUIRE_ATTRIBUTES
+    params.require(:user).permit User::SIGN_UP_PARAMS
   end
 
   def find_user_by_id
