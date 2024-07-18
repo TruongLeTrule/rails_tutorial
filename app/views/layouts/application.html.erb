@@ -9,6 +9,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "i18n" %>
+    <%= javascript_include_tag "translations", skip_pipeline: true %>
   </head>
   <body>
     <%= render "layouts/header" %>
@@ -19,5 +21,6 @@
       <% end %>
       <%= yield %>
     </main>
+    <%= render "layouts/footer" %>
   </body>
 </html>

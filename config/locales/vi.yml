@@ -29,9 +29,15 @@ vi:
       name: "Họ tên"
       password: "Mật khẩu"
       password_confirm: "Xác nhận mật khẩu"
+    micropost_form:
+      compose_new: "Tạo bài viết mới..."
+    user_info:
+      view_profile: "Xem trang cá nhân"
+      micropost: "bài viết"
   home:
     index:
       home: "Trang chủ"
+      micropost_feed: "Bài viết gần đây"
   contact:
     index:
       contact: "Liên lạc"
@@ -39,6 +45,8 @@ vi:
     unauthenticated: "Vui lòng đăng nhập"
     unauthorized: "Bạn không có quyền truy cập vào trang này"
     not_found: "Không tìm thấy người dùng!"
+    show:
+      total_microposts: "Tổng bài viết (%{total})"
     user:
       delete: "Xóa"
       delete_confirm: "Xóa người dùng này?"
@@ -67,15 +75,51 @@ vi:
       new: "Người dùng mới?"
       sign_up_now: "Đăng ký ngay!"
       remember_me: "Duy trì đăng nhập trên thiết bị này"
+      (forgot_password): "(Quên mật khẩu)"
     create:
       successful: "Đăng nhập thành công!"
       invalid: "Email hoặc mật khẩu không chính xác"
       not_activated: "Tài khoản chưa kích hoạt. Vui lòng kiểm tra email để kích hoạt tài khoản"
   user_mailer:
     account_activation:
-      invalid_link: "Đường dẫn không hợp lệ"
-      success: "Kích hoạt tài khoản thành công"
       account_activation: "Kích hoạt tài khoản"
       greeting: "Chào %{user_name}"
       instruction: "Chào mừng đến với Sample App. Nhấn vào đường dẫn bên dưới để kích hoạt tài khoản của bạn:"
       activate: "Kích hoạt"
+    password_reset:
+      password_reset: "Đặt lại mật khẩu"
+      greeting: "Chào %{user_name}"
+      instruction: "Nhấn vào đường dẫn bên dưới để đặt lại mật khẩu. Đường dẫn sẽ khả dụng trong vòng %{expire_time} giờ."
+      reset: "Đặt lại mật khẩu"
+  account_activations:
+    success: "Kích hoạt tài khoản thành công"
+    invalid_link: "Đường dẫn không hợp lệ"
+  password_resets:
+    invalid_email: "Email không hợp lệ"
+    expired_link: "Đương dẫn đã hết hạn"
+    invalid_user: "Người dùng không hợp lệ"
+    create:
+      invalid_user: "Người dùng không hợp lệ"
+      check_email: "Kiểm tra email để cài đặt lại mật khẩu"
+    update:
+      cannot_empty: "không được để trống"
+      reset_success: "Cài đặt lại mật khẩu thành công"
+    edit:
+      password: "Mật khẩu"
+      confirm: "Xác nhận mật khẩu"
+      submit: "Xác nhận"
+      password_reset: "Đặt lại mật khẩu"
+    new:
+      password_reset: "Đặt lại mật khẩu"
+      send_email: "Gửi email"
+  microposts:
+    create:
+      success: "Đăng bài viết thành công!"
+    destroy:
+      success: "Xóa bài viết thành công!"
+    micropost:
+      posted_ago: "Đã đăng %{times} trước"
+      delete: "Xóa bài viết"
+      delete_confirm: "Bạn có chắc là muốn xóa bài viết?"
+  alert:
+    too_large_img_size: "Kích thước ảnh quá lớn (> 5MB)"

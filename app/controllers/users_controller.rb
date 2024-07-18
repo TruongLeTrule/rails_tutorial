@@ -4,13 +4,15 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i(show edit update)
   before_action :admin_user, only: :destroy
 
+  def edit; end
+
   def index
     @pagy, @users = pagy User.activated, items: Settings.page_items
   end
 
-  def show; end
-
-  def edit; end
+  def show
+    @pagy, @microposts = pagy @user.microposts, items: Settings.page_items
+  end
 
   def new
     @user = User.new
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit User::SIGN_UP_REQUIRE_ATTRIBUTES
+    params.require(:user).permit User::SIGN_UP_PARAMS
   end
 
   def find_user_by_id
@@ -57,14 +59,6 @@ class UsersController < ApplicationController
 
     flash[:warning] = t "users.not_found"
     redirect_to root_path
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "users.unauthenticated"
-    redirect_to login_path, status: :see_other
   end
 
   def correct_user
