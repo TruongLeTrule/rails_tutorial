@@ -1,5 +1,6 @@
 module SessionsHelper
   def log_in user
+    reset_session
     session[:user_id] = user.id
     session[:session_token] = user.session_token
   end
@@ -20,7 +21,7 @@ module SessionsHelper
       @current_user = user if user&.session_token == session[:session_token]
     elsif user_id = cookies.encrypted[:user_id]
       user = User.find_by id: user_id
-      if user&.authenticated? cookies[:remember_token]
+      if user.try :authenticated?, :remember, cookies[:remember_token]
         log_in user
         @current_user = user
       end
