@@ -5,3 +5,7 @@ min_password_length: 6
 page_items: 10
 avatar_size: 50
 reset_expired_time: 2
+content_max_length: 140
+max_upload_img_size: 5
+img_resize_limit: 500
+img_accept_format: "image/jpeg,image/gif,image/png"

@@ -11,10 +11,17 @@ en:
   shared:
     error_messages:
       error: "Error"
+    micropost_form:
+      compose_new: "Compose new micropost ..."
+    user_info:
+      view_profile: "View my profile"
+      micropost: "micropost"
   users:
     unauthenticated: "Unauthenticated"
     unauthorized: "Unauthorized"
     not_found: "User not found!"
+    show:
+      total_microposts: "Microposts (%{total})"
     user:
       delete_confirm: "Delete this user?"
     index:
@@ -67,3 +74,14 @@ en:
     update:
       cannot_empty: "cannot empty"
       reset_success: "Password reset successfully"
+  microposts:
+    create:
+      success: "Micropost created successful!"
+    destroy:
+      success: "Micropost deleted successful!"
+    micropost:
+      posted_ago: "Posted %{times} ago"
+      delete: "Delete"
+      delete_confirm: "Are you sure to delete this micropost?"
+  alert:
+    too_large_img_size: "Image size too large (> 5MB)"
