@@ -1,0 +1,4 @@
+<%= form_with model: get_active_relationship(@user),
+              html: {method: :delete} do |f| %>
+  <%= f.submit t(".unfollow"), class: "btn" %>
+<% end %>

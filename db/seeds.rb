@@ -17,3 +17,18 @@ User.create! name: "Truong Le",
                activated: true,
                activated_at: Time.zone.now
 end
+
+users = User.order(:created_at).take 6
+
+50.times do
+  content = Faker::Lorem.sentence word_count: 5
+  users.each{|user| user.microposts.create! content: content}
+end
+
+users = User.all
+user = User.first
+(2..20).each do |i|
+  other_user = users[i]
+  user.follow other_user
+  other_user.follow user
+end

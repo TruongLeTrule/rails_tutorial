@@ -1,16 +1,20 @@
 class UsersController < ApplicationController
-  before_action :find_user_by_id, only: %i(show edit update destroy)
-  before_action :logged_in_user, only: %i(index show edit update destroy)
-  before_action :correct_user, only: %i(show edit update)
+  before_action :find_user_by_id, except: %i(index new create)
+  before_action :logged_in_user,
+                except: %i(new create show)
+  before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
+
+  def edit; end
 
   def index
     @pagy, @users = pagy User.activated, items: Settings.page_items
   end
 
-  def show; end
-
-  def edit; end
+  def show
+    @pagy, @microposts = pagy @user.microposts.newest,
+                              items: Settings.page_items
+  end
 
   def new
     @user = User.new
@@ -45,6 +49,20 @@ class UsersController < ApplicationController
     redirect_to users_url, status: :see_other
   end
 
+  def following
+    @title = t ".following"
+    @all_users = @user.following
+    @pagy, @users = pagy @user.following, items: Settings.page_items
+    render "show_follow", status: :unprocessable_entity
+  end
+
+  def followers
+    @title = t ".follower"
+    @all_users = @user.followers
+    @pagy, @users = pagy @user.followers, items: Settings.page_items
+    render "show_follow", status: :unprocessable_entity
+  end
+
   private
 
   def user_params
@@ -57,14 +75,6 @@ class UsersController < ApplicationController
 
     flash[:warning] = t "users.not_found"
     redirect_to root_path
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t "users.unauthenticated"
-    redirect_to login_path, status: :see_other
   end
 
   def correct_user
