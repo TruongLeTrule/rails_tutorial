@@ -8,7 +8,8 @@ Settings.img_resize_limit]
 
   CREATE_PARAMS = %i(content image).freeze
 
-  default_scope ->{order created_at: :desc}
+  scope :newest, ->{order created_at: :desc}
+  scope :relate_post, ->(user_ids){where user_id: user_ids}
 
   validates :user_id, :content, presence: true
   validates :content, length: {maximum: Settings.content_max_length}

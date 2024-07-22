@@ -9,3 +9,4 @@ content_max_length: 140
 max_upload_img_size: 5
 img_resize_limit: 500
 img_accept_format: "image/jpeg,image/gif,image/png"
+small_avatar: 40

@@ -13,13 +13,19 @@ en:
       error: "Error"
     micropost_form:
       compose_new: "Compose new micropost ..."
+      post: "Post"
     user_info:
       view_profile: "View my profile"
       micropost: "micropost"
+    stats:
+      following_count: "%{count} following"
+      follower: "follower"
   users:
     unauthenticated: "Unauthenticated"
     unauthorized: "Unauthorized"
     not_found: "User not found!"
+    following: "Following"
+    follower: "Follower"
     show:
       total_microposts: "Microposts (%{total})"
     user:
@@ -40,6 +46,13 @@ en:
       success: "Update profile successfully"
     destroy:
       success: "User deleted"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    show_follow:
+      microposts: "Microposts"
+      view_profile: "View my profile"
   sessions:
     new:
       log_in: "Log in"
@@ -85,3 +98,9 @@ en:
       delete_confirm: "Are you sure to delete this micropost?"
   alert:
     too_large_img_size: "Image size too large (> 5MB)"
+  relationships:
+    invalid_user: "Invalid user"
+    destroy:
+      follower: "follower"
+    create:
+      follower: "follower"

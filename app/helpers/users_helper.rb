@@ -9,4 +9,12 @@ module UsersHelper
   def can_destroy_user? user
     current_user.admin? && !current_user?(user)
   end
+
+  def init_active_relationship
+    current_user.active_relationships.build
+  end
+
+  def get_active_relationship user
+    current_user.active_relationships.find_by followed: user
+  end
 end

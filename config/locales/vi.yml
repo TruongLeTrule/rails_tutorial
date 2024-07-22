@@ -31,9 +31,13 @@ vi:
       password_confirm: "Xác nhận mật khẩu"
     micropost_form:
       compose_new: "Tạo bài viết mới..."
+      post: "Đăng"
     user_info:
       view_profile: "Xem trang cá nhân"
       micropost: "bài viết"
+    stats:
+      following_count: "%{count} đang theo dõi"
+      follower: "người theo dõi"
   home:
     index:
       home: "Trang chủ"
@@ -45,6 +49,8 @@ vi:
     unauthenticated: "Vui lòng đăng nhập"
     unauthorized: "Bạn không có quyền truy cập vào trang này"
     not_found: "Không tìm thấy người dùng!"
+    follower: "Người theo dõi"
+    following: "Đang theo dõi"
     show:
       total_microposts: "Tổng bài viết (%{total})"
     user:
@@ -68,6 +74,13 @@ vi:
       success: "Cập nhật thông tin thành công"
     destroy:
       success: "Người dùng đã được xóa"
+    follow:
+      follow: "Theo dõi"
+    unfollow:
+      unfollow: "Hủy theo dõi"
+    show_follow:
+      microposts: "Tổng số bài viết"
+      view_profile: "Xem hồ sơ"
   sessions:
     new:
       log_in: "Đăng nhập"
@@ -123,3 +136,9 @@ vi:
       delete_confirm: "Bạn có chắc là muốn xóa bài viết?"
   alert:
     too_large_img_size: "Kích thước ảnh quá lớn (> 5MB)"
+  relationships:
+    invalid_user: "Người dùng không khả dụng"
+    destroy:
+      follower: "người theo dõi"
+    create:
+      follower: "người theo dõi"
